@@ -12,11 +12,14 @@ import Button from "../Button";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Modal from "./Modal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+
   const router = useRouter();
 
   const {
@@ -49,6 +52,11 @@ const LoginModal = () => {
 
       if (callback?.error) toast.error(callback.error);
     });
+  };
+
+  const handleToggle = () => {
+    loginModal.onClose();
+    registerModal.onOpen();
   };
 
   const bodyContent = (
@@ -89,8 +97,20 @@ const LoginModal = () => {
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
+      <div className="text-neutral-500  text-center mt-4 font-light">
+        <div className="flex flex-row justify-center items-center gap-2">
+          <div>First time using Airbnb?</div>
+          <div
+            className="text-neutral-800 font-semibold cursor-pointer hover:underline"
+            onClick={handleToggle}
+          >
+            Sign up
+          </div>
+        </div>
+      </div>
     </div>
   );
+  
   return (
     <Modal
       disabled={isLoading}
