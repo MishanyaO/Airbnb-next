@@ -1,7 +1,7 @@
 "use client";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
+// import useRegisterModal from "@/app/hooks/useRegisterModal";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,7 +17,7 @@ import Modal from "./Modal";
 const LoginModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const registerModal = useRegisterModal();
+  // const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const router = useRouter();
 
@@ -83,20 +83,20 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
       <div className="text-neutral-500  text-center mt-4 font-light">
         <div className="flex flex-row justify-center items-center gap-2">
           <div>Already have an account?</div>
           <div
             className="text-neutral-800 cursor-pointer hover:underline"
-            onClick={registerModal.onClose}
+            onClick={loginModal.onClose}
           >
             Log in
           </div>
