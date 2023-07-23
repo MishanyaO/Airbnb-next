@@ -35,12 +35,15 @@ const useFavorite = ({ listingId, currentUser }: UseFavorite) => {
 
         await request();
         router.refresh();
-        toast.success("Success", {
-          style: {
-            background: "#b6ffbf",
-            color: "black",
-          },
-        });
+        toast.success(
+          hasFavorited ? "Removed from favorites" : "Added to favorites!",
+          {
+            style: {
+              background: "#b6ffbf",
+              color: "black",
+            },
+          }
+        );
       } catch (error) {
         toast.error("Something went wrong!");
       }
