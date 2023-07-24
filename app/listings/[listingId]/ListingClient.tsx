@@ -62,6 +62,7 @@ const ListingClient: FC<Props> = ({
           },
         });
         setDateRange(initialDateRange);
+        router.push("/trips");
         router.refresh();
       })
       .catch(() => {
