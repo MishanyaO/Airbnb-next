@@ -1,10 +1,12 @@
 "use client";
 
+import { FC } from "react";
+import Image from "next/image";
+
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
-import React, { FC } from "react";
+
 import Heading from "../Heading";
-import Image from "next/image";
 import LikeButton from "../LikeButton";
 
 interface Props {

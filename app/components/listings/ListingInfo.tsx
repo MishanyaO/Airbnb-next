@@ -1,12 +1,12 @@
 "use client";
 
+import { FC } from "react";
 import useCountries from "@/app/hooks/useCountries";
 import { SafeUser } from "@/app/types";
-import React, { FC } from "react";
+import dynamic from "next/dynamic";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
-import dynamic from "next/dynamic";
 
 const Map = dynamic(() => import("../Map"), {
   ssr: false,
