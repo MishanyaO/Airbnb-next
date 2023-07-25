@@ -34,12 +34,16 @@ const RegisterModal = () => {
     axios
       .post("/api/register", data)
       .then(() => {
+        toast.success("Signed up!");
         registerModal.onClose();
+        loginModal.onOpen();
       })
       .catch(() => {
         toast.error("Something went wrong");
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleToggle = () => {
@@ -106,7 +110,7 @@ const RegisterModal = () => {
       </div>
     </div>
   );
-  
+
   return (
     <Modal
       disabled={isLoading}
