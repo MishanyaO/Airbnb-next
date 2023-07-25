@@ -80,7 +80,13 @@ const UserMenu: FC<Props> = ({ currentUser }) => {
                   }}
                   label="My reservations"
                 />
-                <MenuItem onClick={() => {}} label="My properties" />
+                <MenuItem
+                  onClick={() => {
+                    router.push("/properties");
+                    setIsOpen(false);
+                  }}
+                  label="My properties"
+                />
                 <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
                 <MenuItem
                   onClick={() => {
