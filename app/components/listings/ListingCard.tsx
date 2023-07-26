@@ -17,7 +17,6 @@ interface Props {
   actionLabel?: string;
   actionId?: string;
   currentUser?: SafeUser | null;
-  hideLikeBtn?: boolean;
 }
 
 const ListingCard: FC<Props> = ({
@@ -28,7 +27,6 @@ const ListingCard: FC<Props> = ({
   actionId = "",
   actionLabel,
   currentUser,
-  hideLikeBtn,
 }) => {
   const router = useRouter();
   const { getByValue } = useCountries();
@@ -69,11 +67,9 @@ const ListingCard: FC<Props> = ({
             src={data.imageSrc}
             className="object-cover h-full w-full group-hover:scale-110 transition"
           />
-          {!hideLikeBtn && (
-            <div className="absolute top-3 right-3">
-              <LikeButton listingId={data.id} currentUser={currentUser} />
-            </div>
-          )}
+          <div className="absolute top-3 right-3">
+            <LikeButton listingId={data.id} currentUser={currentUser} />
+          </div>
         </div>
         <div className="font-semibold text-lg">
           {location?.region}, {location?.label}

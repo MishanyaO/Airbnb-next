@@ -56,7 +56,7 @@ export default async function getListings(params: ListingParams) {
       query.locationValue = locationValue;
     }
 
-    if (startDate || endDate) {
+    if (startDate && endDate) {
       query.NOT = {
         reservations: {
           some: {
