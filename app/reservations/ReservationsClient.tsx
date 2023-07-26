@@ -44,6 +44,7 @@ const ReservationsClient: FC<Props> = ({ reservations, currentUser }) => {
         {reservations.map((reservation) => (
           <ListingCard
             key={reservation.id}
+            //@ts-expect-error
             data={reservation.listing}
             reservation={reservation}
             actionId={reservation.id}

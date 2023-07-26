@@ -53,6 +53,7 @@ const TripsClient: FC<Props> = ({ currentUser, reservations }) => {
         {reservations.map((reservation) => (
           <ListingCard
             key={reservation.id}
+            //@ts-expect-error
             data={reservation.listing}
             reservation={reservation}
             actionId={reservation.id}
